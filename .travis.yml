@@ -1,12 +1,11 @@
-os:
-#    - linux # Exclude for development to safe Travis minutes
-    - osx
-
 matrix:
     include:
         - name: "macOS 13"
           os: osx
           osx_image: xcode10.1
+    include:
+        - name: "Linux"
+          os: linux
 
 before_script:
 - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/greadelf greadelf)
@@ -14,7 +13,6 @@ before_script:
 - hdiutil create -size 3g -volname "esp8266-ws" -fs "Case-sensitive HFS+" ~/esp8266_ws.dmg
 - mkdir ~/esp8266-ws
 - hdiutil attach -mountpoint ~/esp8266-ws ~/esp8266_ws.dmg
-- mount
 - cp -r /Users/travis/build/strongly-typed/esp-open-sdk ~/esp8266-ws
 
 dist: xenial
