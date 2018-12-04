@@ -1,3 +1,14 @@
+os:
+#    - linux # Exclude for development to safe Travis minutes
+    - osx
+
+matrix:
+    include:
+        - name: "macOS 13"
+          os: osx
+          osx_image: xcode10.1
+
+
 dist: xenial
 language: c
 sudo: false
@@ -25,6 +36,20 @@ addons:
     - sed
     - git
     - help2man
+  homebrew:
+    brewfile: true
+    # packages:
+    # - binutils
+    # - coreutils
+    # - automake
+    # - wget
+    # - gawk
+    # - libtool
+    # - help2man
+    # - gperf
+    # - gnu-sed --with-default-names
+    # - grep
+    update: true
 
 script:
   # Travis sets this due to "language: c", but it confuses autotools configure when cross-building
