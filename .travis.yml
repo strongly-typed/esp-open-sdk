@@ -12,6 +12,8 @@ before_script:
 - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/greadelf greadelf)
 - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/gobjcopy gobjcopy)
 - (cd /usr/local/bin/; ln -s ../Cellar/gnu-sed/4.5/bin/sed sed)
+- echo $PATH
+- which sed
 
 
 dist: xenial
