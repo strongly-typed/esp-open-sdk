@@ -7,7 +7,7 @@ matrix:
         - name: "macOS 13"
           os: osx
           osx_image: xcode10.1
-          after_install:
+          before_install:
             - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/greadelf greadelf)
             - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/gobjcopy gobjcopy)
 
