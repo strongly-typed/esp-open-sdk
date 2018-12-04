@@ -7,6 +7,9 @@ matrix:
         - name: "macOS 13"
           os: osx
           osx_image: xcode10.1
+          after_install:
+            - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/greadelf greadelf)
+            - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/gobjcopy gobjcopy)
 
 
 dist: xenial
@@ -38,17 +41,6 @@ addons:
     - help2man
   homebrew:
     brewfile: true
-    # packages:
-    # - binutils
-    # - coreutils
-    # - automake
-    # - wget
-    # - gawk
-    # - libtool
-    # - help2man
-    # - gperf
-    # - gnu-sed --with-default-names
-    # - grep
     update: true
 
 script:

@@ -6,5 +6,5 @@ brew 'gawk'
 brew 'libtool'
 brew 'help2man'
 brew 'gperf'
-brew 'gnu-sed', args: ['--with-default-names']
+brew 'gnu-sed'
 brew 'grep'
