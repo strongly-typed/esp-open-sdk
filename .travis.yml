@@ -7,10 +7,10 @@ matrix:
         - name: "macOS 13"
           os: osx
           osx_image: xcode10.1
-          before_install:
-            - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/greadelf greadelf)
-            - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/gobjcopy gobjcopy)
 
+after_install:
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/greadelf greadelf); fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/gobjcopy gobjcopy); fi
 
 dist: xenial
 language: c
