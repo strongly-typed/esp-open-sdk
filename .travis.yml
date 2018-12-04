@@ -51,4 +51,4 @@ addons:
 script:
   # Travis sets this due to "language: c", but it confuses autotools configure when cross-building
   - unset CC
-  - (cd ~/esp8266-ws/esp-open-sdk; make)
+  - (cd ~/esp8266-ws/esp-open-sdk; make -j3)
