@@ -15,6 +15,7 @@ before_script:
 - mkdir ~/esp8266-ws
 - hdiutil attach -mountpoint ~/esp8266-ws ~/esp8266_ws.dmg
 - mount
+- cp -r /Users/travis/build/strongly-typed/esp-open-sdk ~/esp8266-ws
 
 dist: xenial
 language: c
@@ -50,4 +51,4 @@ addons:
 script:
   # Travis sets this due to "language: c", but it confuses autotools configure when cross-building
   - unset CC
-  - make
+  - (cd ~/esp8266-ws/esp-open-sdk; make)
