@@ -12,7 +12,8 @@ before_script:
 - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/greadelf greadelf)
 - (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/gobjcopy gobjcopy)
 - hdiutil create -size 3g -volname "esp8266-ws" -fs "Case-sensitive HFS+" ~/esp8266_ws.dmg
-- open ~/esp8266_ws.dmg
+- mkdir ~/esp8266-ws
+- hdiutil attach -mountpoint ~/esp8266-ws ~/esp8266_ws.dmg
 - mount
 
 dist: xenial
