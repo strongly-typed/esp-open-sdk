@@ -1,6 +1,6 @@
 matrix:
     include:
-        - name: "macOS 13"
+        - name: "macOS 10.13"
           os: osx
           osx_image: xcode10.1
     include:
@@ -8,12 +8,12 @@ matrix:
           os: linux
 
 before_script:
-- (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/greadelf greadelf)
-- (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/gobjcopy gobjcopy)
-- hdiutil create -size 3g -volname "esp8266-ws" -fs "Case-sensitive HFS+" ~/esp8266_ws.dmg
-- mkdir ~/esp8266-ws
-- hdiutil attach -mountpoint ~/esp8266-ws ~/esp8266_ws.dmg
-- cp -r /Users/travis/build/strongly-typed/esp-open-sdk ~/esp8266-ws
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/greadelf greadelf); fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/gobjcopy gobjcopy); fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then hdiutil create -size 3g -volname "esp8266-ws" -fs "Case-sensitive HFS+" ~/esp8266_ws.dmg; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mkdir ~/esp8266-ws; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then hdiutil attach -mountpoint ~/esp8266-ws ~/esp8266_ws.dmg; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cp -r /Users/travis/build/strongly-typed/esp-open-sdk ~/esp8266-ws; fi
 
 dist: xenial
 language: c
