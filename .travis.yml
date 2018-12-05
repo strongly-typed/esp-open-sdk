@@ -49,4 +49,5 @@ addons:
 script:
   # Travis sets this due to "language: c", but it confuses autotools configure when cross-building
   - unset CC
-  - (cd ~/esp8266-ws/esp-open-sdk; make -j3)
+  - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then (cd ~/esp8266-ws/esp-open-sdk; make -j3); fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then make -j3; fi
