@@ -1,11 +1,11 @@
 matrix:
-    include:
-        - name: "macOS 10.13"
-          os: osx
-          osx_image: xcode10.1
-    include:
-        - name: "Linux"
-          os: linux
+  include:
+  - name: "macOS 10.13"
+    os: osx
+    osx_image: xcode10.1
+  - name: "Linux"
+    os: linux
+    dist: xenial
 
 before_script:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then (cd /usr/local/bin/; ln -s ../Cellar/binutils/2.31.1_2/bin/greadelf greadelf); fi
